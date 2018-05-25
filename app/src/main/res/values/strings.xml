@@ -221,4 +221,10 @@
         <item>@string/ego.fragment.title.find</item>
         <item>@string/ego.fragment.title.user</item>
     </string-array>
+
+    <!--find-->
+    <string name="ego.fragment.center.email">设置邮箱</string>
+    <string name="ego.fragment.center.logout">退出登陆</string>
+    <string name="ego.fragment.center.login">用户登陆</string>
+    <string name="ego.fragment.center.about">关于APP</string>
 </resources>
