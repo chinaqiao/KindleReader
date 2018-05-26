@@ -3,7 +3,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
               android:orientation="horizontal"
               android:layout_width="match_parent"
-              android:layout_height="30dp"
+              android:layout_height="50dp"
               android:paddingLeft="@dimen/nb.padding.large"
               android:paddingRight="@dimen/nb.padding.large"
               android:background="@drawable/selector_common_bg">
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginRight="13dp"
+        android:layout_marginRight="15dp"
         android:src="@drawable/ic_section_comment"/>
 
     <TextView
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/section_iv_icon"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:textColor="@color/black"
         android:text="综合讨论区"/>
 

@@ -23,7 +23,11 @@ public class LocalFileLoader extends CursorLoader {
 
     private static final Uri FILE_URI = Uri.parse("content://media/external/file");
     private static final String SELECTION = MediaStore.Files.FileColumns.DATA + " like ?";
-    private static final String SEARCH_TYPE = "%.txt";
+    private static final String[] SEARCH_TYPE = {"%.txt"};
+    /**
+     * 最小文件的size
+     */
+    private static final int FILE_MIN_SIZE = 1024 * 100;
     private static final String SORT_ORDER = MediaStore.Files.FileColumns.DISPLAY_NAME + " DESC";
     private static final String[] FILE_PROJECTION = {
             MediaStore.Files.FileColumns.DATA,
@@ -42,7 +46,7 @@ public class LocalFileLoader extends CursorLoader {
         setUri(FILE_URI);
         setProjection(FILE_PROJECTION);
         setSelection(SELECTION);
-        setSelectionArgs(new String[]{SEARCH_TYPE});
+        setSelectionArgs(SEARCH_TYPE);
         setSortOrder(SORT_ORDER);
     }
 
@@ -70,7 +74,9 @@ public class LocalFileLoader extends CursorLoader {
                     continue;
                 }
                 else {
-                    files.add(file);
+                    if (file.length() > FILE_MIN_SIZE) {
+                        files.add(file);
+                    }
                 }
             }
         }

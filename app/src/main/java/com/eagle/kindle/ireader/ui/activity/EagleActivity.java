@@ -21,6 +21,7 @@ import com.eagle.kindle.ireader.ui.base.BaseTabActivity;
 import com.eagle.kindle.ireader.ui.dialog.SexChooseDialog;
 import com.eagle.kindle.ireader.ui.fragment.BookShelfFragment;
 import com.eagle.kindle.ireader.ui.fragment.CommunityFragment;
+import com.eagle.kindle.ireader.ui.fragment.EgoImportFragment;
 import com.eagle.kindle.ireader.ui.fragment.FindFragment;
 import com.eagle.kindle.ireader.ui.fragment.UserCenterFragment;
 import com.eagle.kindle.ireader.utils.Constant;
@@ -68,7 +69,7 @@ public class EagleActivity extends BaseTabActivity{
 
     private void initFragment(){
         Fragment bookShelfFragment = new BookShelfFragment();
-        Fragment discoveryFragment = new FindFragment();
+        EgoImportFragment discoveryFragment = new EgoImportFragment();
         UserCenterFragment centerFragment = new UserCenterFragment();
         mFragmentList.add(bookShelfFragment);
         mFragmentList.add(discoveryFragment);

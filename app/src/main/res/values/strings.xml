@@ -222,9 +222,13 @@
         <item>@string/ego.fragment.title.user</item>
     </string-array>
 
-    <!--find-->
+    <!--用户中心-->
     <string name="ego.fragment.center.email">设置邮箱</string>
     <string name="ego.fragment.center.logout">退出登陆</string>
     <string name="ego.fragment.center.login">用户登陆</string>
     <string name="ego.fragment.center.about">关于APP</string>
+    <!--导入-->
+    <string name="ego.fragment.center.local">本地搜索</string>
+    <string name="ego.fragment.center.ftp">FTP导入</string>
+    <string name="ego.fragment.center.otg">OTG导入</string>
 </resources>

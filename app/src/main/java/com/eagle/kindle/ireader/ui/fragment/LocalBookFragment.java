@@ -20,7 +20,6 @@ import butterknife.BindView;
  * Created by newbiechen on 17-5-27.
  * 本地书籍
  */
-
 public class LocalBookFragment extends BaseFileFragment{
     @BindView(R.id.refresh_layout)
     RefreshLayout mRlRefresh;
@@ -54,10 +53,8 @@ public class LocalBookFragment extends BaseFileFragment{
                     if (BookRepository.getInstance().getCollBook(id) != null){
                         return;
                     }
-
                     //点击选中
                     mAdapter.setCheckedItem(pos);
-
                     //反馈
                     if (mListener != null){
                         mListener.onItemCheckedChange(mAdapter.getItemIsChecked(pos));
