@@ -22,6 +22,7 @@ import com.eagle.kindle.ireader.ui.dialog.SexChooseDialog;
 import com.eagle.kindle.ireader.ui.fragment.BookShelfFragment;
 import com.eagle.kindle.ireader.ui.fragment.CommunityFragment;
 import com.eagle.kindle.ireader.ui.fragment.EgoImportFragment;
+import com.eagle.kindle.ireader.ui.fragment.EgoWebViewFragment;
 import com.eagle.kindle.ireader.ui.fragment.FindFragment;
 import com.eagle.kindle.ireader.ui.fragment.UserCenterFragment;
 import com.eagle.kindle.ireader.utils.Constant;
@@ -70,8 +71,10 @@ public class EagleActivity extends BaseTabActivity{
     private void initFragment(){
         Fragment bookShelfFragment = new BookShelfFragment();
         EgoImportFragment discoveryFragment = new EgoImportFragment();
+        EgoWebViewFragment webViewFragment = new EgoWebViewFragment();
         UserCenterFragment centerFragment = new UserCenterFragment();
         mFragmentList.add(bookShelfFragment);
+        mFragmentList.add(webViewFragment);
         mFragmentList.add(discoveryFragment);
         mFragmentList.add(centerFragment);
     }
@@ -85,8 +88,58 @@ public class EagleActivity extends BaseTabActivity{
     @Override
     protected void initWidget() {
         super.initWidget();
-        // 性别选择框
+        //性别选择框
         // showSexChooseDialog();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_eagle, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        Class<?> activityCls = null;
+        switch (id) {
+            case R.id.action_search:
+                activityCls = SearchActivity.class;
+                break;
+            case R.id.action_scan_local_book:
+
+                if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M){
+
+                    if (mPermissionsChecker == null){
+                        mPermissionsChecker = new PermissionsChecker(this);
+                    }
+
+                    //获取读取和写入SD卡的权限
+                    if (mPermissionsChecker.lacksPermissions(PERMISSIONS)){
+                        //请求权限
+                        ActivityCompat.requestPermissions(this, PERMISSIONS,PERMISSIONS_REQUEST_STORAGE);
+                        return super.onOptionsItemSelected(item);
+                    }
+                }
+
+                activityCls = FileSystemActivity.class;
+                break;
+            case R.id.action_email_book:
+                activityCls = DownloadActivity.class;
+                break;
+            case R.id.action_wifi_book:
+                break;
+            case R.id.action_otg_book:
+                break;
+            default:
+                break;
+        }
+        if (activityCls != null){
+            Intent intent = new Intent(this, activityCls);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

@@ -1,11 +1,21 @@
 package com.eagle.kindle.ireader.ui.fragment;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.Toolbar;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -21,9 +31,13 @@ import com.eagle.kindle.ireader.model.bean.CollBookBean;
 import com.eagle.kindle.ireader.model.local.BookRepository;
 import com.eagle.kindle.ireader.presenter.BookShelfPresenter;
 import com.eagle.kindle.ireader.presenter.contract.BookShelfContract;
+import com.eagle.kindle.ireader.ui.activity.DownloadActivity;
+import com.eagle.kindle.ireader.ui.activity.FileSystemActivity;
 import com.eagle.kindle.ireader.ui.activity.ReadActivity;
+import com.eagle.kindle.ireader.ui.activity.SearchActivity;
 import com.eagle.kindle.ireader.ui.adapter.CollBookAdapter;
 import com.eagle.kindle.ireader.ui.base.BaseMVPFragment;
+import com.eagle.kindle.ireader.utils.PermissionsChecker;
 import com.eagle.kindle.ireader.utils.RxUtils;
 import com.eagle.kindle.ireader.utils.ToastUtils;
 import com.eagle.kindle.ireader.widget.adapter.WholeAdapter;
@@ -46,6 +60,11 @@ public class BookShelfFragment extends BaseMVPFragment<BookShelfContract.Present
     private static final String TAG = "BookShelfFragment";
     @BindView(R.id.book_shelf_rv_content)
     ScrollRefreshRecyclerView mRvContent;
+    private static final int PERMISSIONS_REQUEST_STORAGE = 1;
+    static final String[] PERMISSIONS = {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
 
     /************************************/
     private CollBookAdapter mCollBookAdapter;
@@ -53,10 +72,23 @@ public class BookShelfFragment extends BaseMVPFragment<BookShelfContract.Present
 
     //是否是第一次进入
     private boolean isInit = true;
+    private PermissionsChecker mPermissionsChecker;
 
     @Override
     protected int getContentId() {
         return R.layout.fragment_bookshelf;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_eagle, menu);
     }
 
     @Override

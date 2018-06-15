@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_search"
+        android:orderInCategory="80"
+        android:title="@string/nb.menu.action.search"
+        android:icon="@drawable/ic_menu_search"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/action_scan_local_book"
+        android:title="@string/ego.menu.action.scan"
+        android:icon="@drawable/ic_menu_scan"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_email_book"
+        android:title="@string/ego.menu.action.email"
+        android:icon="@drawable/ic_menu_morning"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_wifi_book"
+        android:title="@string/ego.menu.action.wifi"
+        android:icon="@drawable/ic_menu_setting"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_otg_book"
+        android:title="@string/ego.menu.action.otg"
+        android:icon="@drawable/ic_menu_category"
+        app:showAsAction="never" />
+
+</menu>
