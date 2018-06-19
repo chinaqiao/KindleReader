@@ -226,10 +226,10 @@
     <string name="ego.menu.action.otg">OTG传输</string>
 
     <!-- 底部导航栏 -->
-    <string-array name="ego_fragment_title">
+    <string-array name="ego_fragment_title">tian
         <item>@string/ego.fragment.title.bookshelf</item>
-        <item>@string/ego.fragment.title.web</item>
         <item>@string/ego.fragment.title.find</item>
+        <item>@string/ego.fragment.title.web</item>
         <item>@string/ego.fragment.title.user</item>
     </string-array>
 
@@ -240,6 +240,32 @@
     <string name="ego.fragment.center.about">关于APP</string>
     <!--导入-->
     <string name="ego.fragment.center.local">本地搜索</string>
+    <string name="ego.fragment.center.wifi">WIFI搜索</string>
     <string name="ego.fragment.center.ftp">FTP导入</string>
     <string name="ego.fragment.center.otg">OTG导入</string>
+    <string name="title_activity_login">登录</string>
+
+    <!-- 登录界面 -->
+    <string name="ego.fragment.login.btn.login">登录</string>
+    <string name="ego.fragment.login.btn.reg">注册账号</string>
+    <string name="ego.fragment.login.btn.code">发送验证码</string>
+
+    <string name="ego.fragment.login.txt.phone">手机号</string>
+    <string name="ego.fragment.login.txt.pwd">密码</string>
+    <string name="ego.fragment.login.txt.code">验证码</string>
+
+    <string name="ego.fragment.login.error.required">这个没有填</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
 </resources>

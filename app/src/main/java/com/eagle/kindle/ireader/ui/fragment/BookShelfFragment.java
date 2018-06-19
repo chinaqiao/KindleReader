@@ -86,12 +86,6 @@ public class BookShelfFragment extends BaseMVPFragment<BookShelfContract.Present
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_eagle, menu);
-    }
-
-    @Override
     protected BookShelfContract.Presenter bindPresenter() {
         return new BookShelfPresenter();
     }

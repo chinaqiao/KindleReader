@@ -74,8 +74,8 @@ public class EagleActivity extends BaseTabActivity{
         EgoWebViewFragment webViewFragment = new EgoWebViewFragment();
         UserCenterFragment centerFragment = new UserCenterFragment();
         mFragmentList.add(bookShelfFragment);
-        mFragmentList.add(webViewFragment);
         mFragmentList.add(discoveryFragment);
+        mFragmentList.add(webViewFragment);
         mFragmentList.add(centerFragment);
     }
 

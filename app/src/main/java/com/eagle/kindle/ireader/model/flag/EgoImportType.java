@@ -11,6 +11,7 @@ import com.eagle.kindle.ireader.R;
  */
 public enum EgoImportType {
     LOCAL(R.string.ego_fragment_center_local,R.drawable.ic_section_top),
+    WIFI(R.string.ego_fragment_center_wifi,R.drawable.ic_section_girl),
     FTP(R.string.ego_fragment_center_ftp,R.drawable.ic_section_topic),
     OTG(R.string.ego_fragment_center_otg,R.drawable.ic_section_sort),
     ;
